@@ -1,0 +1,25 @@
+# Given an array of 2n integers, your task is to group these integers into n pairs of integer,
+ # say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
+
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        ln = len(nums)
+        if ln == 0:
+            return 0
+        rn = 0
+        i = 0
+        if ln % 2 == 0:
+            while ln > i:
+                rn+= min(nums[i], nums[i+1])
+                i += 2
+        else:
+            while ln > i:
+                if i == ln - 1:
+                    rn += nums[i]
+                    i += 1
+                    continue
+                    
+                rn += min([nums[i], nums[i+1]])
+                i += 2
+        return rn

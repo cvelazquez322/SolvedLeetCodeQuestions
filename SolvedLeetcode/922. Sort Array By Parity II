@@ -1,0 +1,28 @@
+
+# Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
+
+# Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
+
+# You may return any answer array that satisfies this condition.
+
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        elist = []
+        olist = []
+        rlist = []
+        if len(A) == 0:
+            return 0
+        for x in A:
+            if x % 2 == 0:
+                elist.append(x)
+            else:
+                olist.append(x)
+        i = 0
+        while len(elist) != 0 or len(olist) != 0:
+                if i % 2 == 0:
+                    rlist.append(elist.pop(0))
+                else:
+                    rlist.append(olist.pop(0))
+                i += 1
+                
+        return rlist
