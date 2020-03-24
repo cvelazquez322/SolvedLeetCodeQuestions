@@ -1,0 +1,24 @@
+# # Given a sorted array nums, remove the duplicates 
+# in-place such that each element appear only once and return the new length.
+
+# Do not allocate extra space for another array, 
+# you must do this by modifying the input array in-place with O(1) extra memory.
+
+#the objective here is not speed, but memory space, 
+# my code runs with 90% less memory space than others on leetcode, even though
+# it is only 30% faster
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        lenth = len(nums)
+        if lenth == 0:
+            return 0
+        pos = 0
+        while lenth > pos + 1:
+            if nums[pos] == nums[pos + 1]:
+                nums.pop(pos + 1)
+                lenth -= 1
+                continue
+            pos += 1
+                
+        return lenth

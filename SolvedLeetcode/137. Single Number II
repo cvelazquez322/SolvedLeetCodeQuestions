@@ -1,0 +1,15 @@
+# Given a non-empty array of integers, every element appears three times except for one, which appears exactly once. Find that single one
+
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return []
+        nums.sort()
+        pos = 0
+        while len(nums) > pos + 1: 
+            if nums[pos] == nums[pos+1]:
+                pos += 3
+            else:
+                return nums[pos]
+        return nums[-1]
